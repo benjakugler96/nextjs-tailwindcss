@@ -4,14 +4,14 @@ const MobileMenu = ({ isVisible = false }) => (
 			{/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
 			<a
 				href="#"
-				class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+				className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
 			>
 				Dashboard
 			</a>
 
 			<a
 				href="#"
-				class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+				className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 			>
 				About
 			</a>

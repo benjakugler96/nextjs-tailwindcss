@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const BackButton = () => (
 	<svg
-		class="w-8 h-8 cursor-pointer"
+		className="w-8 h-8 cursor-pointer"
 		fill="none"
 		stroke="#374151"
 		viewBox="0 0 24 24"
@@ -22,8 +22,8 @@ const PageHeader = ({
 	backButton = true,
 	backUrl = '/',
 }) => (
-	<header class="bg-white shadow">
-		<div class="max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex items-center">
+	<header className="bg-white shadow">
+		<div className="max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex items-center">
 			{backButton && (
 				<Link href={backUrl}>
 					<a>
@@ -31,7 +31,7 @@ const PageHeader = ({
 					</a>
 				</Link>
 			)}
-			<h1 class="ml-2 text-xl md:text-2xl lg:text-3xl font-bold leading-tight text-gray-800 flex items-center">
+			<h1 className="ml-2 text-xl md:text-2xl lg:text-3xl font-bold leading-tight text-gray-800 flex items-center">
 				{title}
 			</h1>
 		</div>

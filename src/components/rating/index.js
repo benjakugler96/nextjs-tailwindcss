@@ -11,7 +11,7 @@ const Rating = ({ rating = 0 }) => {
 				<div className="flex">
 					{console.log(rating)}
 					<svg
-						class="w-6 h-6"
+						className="w-6 h-6"
 						fill={generateFill(2)}
 						stroke="currentColor"
 						viewBox="0 0 24 24"
@@ -25,7 +25,7 @@ const Rating = ({ rating = 0 }) => {
 						></path>
 					</svg>
 					<svg
-						class="w-6 h-6"
+						className="w-6 h-6"
 						fill={generateFill(4)}
 						stroke="currentColor"
 						viewBox="0 0 24 24"
@@ -39,7 +39,7 @@ const Rating = ({ rating = 0 }) => {
 						></path>
 					</svg>
 					<svg
-						class="w-6 h-6"
+						className="w-6 h-6"
 						fill={generateFill(6)}
 						stroke="currentColor"
 						viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ const Rating = ({ rating = 0 }) => {
 						></path>
 					</svg>
 					<svg
-						class="w-6 h-6"
+						className="w-6 h-6"
 						fill={generateFill(8)}
 						stroke="currentColor"
 						viewBox="0 0 24 24"
@@ -67,7 +67,7 @@ const Rating = ({ rating = 0 }) => {
 						></path>
 					</svg>
 					<svg
-						class="w-6 h-6"
+						className="w-6 h-6"
 						fill={generateFill(10)}
 						stroke="currentColor"
 						viewBox="0 0 24 24"

@@ -2,9 +2,12 @@ import axios from 'axios';
 import { Thumbnail, PageHeader, Content, Navbar } from '../../components';
 
 const paths = [
-	{ params: { country: 'ar' } },
+	{ params: { country: 'US' } },
+	{ params: { country: 'CA' } },
+	{ params: { country: 'MX' } },
 	{ params: { country: 'us' } },
 	{ params: { country: 'ca' } },
+	{ params: { country: 'mx' } },
 ];
 
 const Country = ({ shows = [], country = '' }) => {
