@@ -42,7 +42,6 @@ const Show = ({ showDetails = {}, error, country = '' } = {}) => {
 
 export const getServerSideProps = async ({ query = {} }) => {
 	const { showId, country } = query;
-	console.log('aca estoy?');
 	try {
 		const response = await axios.get(
 			`https://api.tvmaze.com/shows/${showId}?embed=cast`

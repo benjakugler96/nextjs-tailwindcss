@@ -9,7 +9,6 @@ const Rating = ({ rating = 0 }) => {
 		<>
 			{rating ? (
 				<div className="flex">
-					{console.log(rating)}
 					<svg
 						className="w-6 h-6"
 						fill={generateFill(2)}

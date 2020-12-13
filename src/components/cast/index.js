@@ -21,7 +21,6 @@ const Cast = ({ cast }) => {
 		});
 	return (
 		<div className="bg-white shadow-md overflow-hidden sm:rounded-lg mb-5 mx-5">
-			{console.log(cast, 'hola')}
 			<div className="px-4 py-5 sm:px-6">
 				<h3 className="text-lg leading-6 font-medium text-gray-900">Cast</h3>
 				<p className="mt-1 max-w-2xl text-sm text-gray-500">
