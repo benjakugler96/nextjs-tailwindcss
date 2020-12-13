@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Error from 'next/error';
 import { Thumbnail, PageHeader, Content, Navbar } from '../../components';
 
 const paths = [
@@ -10,7 +11,7 @@ const paths = [
 	{ params: { country: 'mx' } },
 ];
 
-const Country = ({ shows = [], country = '' }) => {
+const Country = ({ shows = [], country = '', error }) => {
 	const renderShows = () =>
 		shows.map((showItem, index) => (
 			<li key={index}>
@@ -21,15 +22,22 @@ const Country = ({ shows = [], country = '' }) => {
 				/>
 			</li>
 		));
+
 	return (
 		<div>
 			<Navbar />
-			<PageHeader title={`Tv Shows for ${country.toUpperCase()}`} />
-			<Content>
-				<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 justify-items-center">
-					{renderShows()}
-				</ul>
-			</Content>
+			{error ? (
+				<Error statusCode={error} />
+			) : (
+				<>
+					<PageHeader title={`Tv Shows for ${country.toUpperCase()}`} />
+					<Content>
+						<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 justify-items-center">
+							{renderShows()}
+						</ul>
+					</Content>
+				</>
+			)}
 		</div>
 	);
 };
@@ -37,7 +45,7 @@ const Country = ({ shows = [], country = '' }) => {
 export async function getStaticPaths() {
 	return {
 		paths,
-		fallback: false,
+		fallback: true,
 	};
 }
 
@@ -55,7 +63,7 @@ export async function getStaticProps({ params }) {
 	} catch (error) {
 		return {
 			props: {
-				error,
+				error: error.response?.status,
 			},
 		};
 	}

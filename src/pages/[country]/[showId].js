@@ -1,18 +1,10 @@
 import axios from 'axios';
-import {
-	Cast,
-	Content,
-	Navbar,
-	PageHeader,
-	ShowDetails,
-} from '../../components';
+import Error from 'next/error';
+import { Content, Navbar, PageHeader, ShowDetails } from '../../components';
 
-const Show = ({ showDetails, error, country } = {}) => {
-	if (error) {
-		return <div>error ocurred</div>;
-	}
+const Show = ({ showDetails = {}, error, country = '' } = {}) => {
 	const {
-		image: { original },
+		image: { original } = {},
 		language,
 		name,
 		premiered,
@@ -25,28 +17,32 @@ const Show = ({ showDetails, error, country } = {}) => {
 	return (
 		<div>
 			<Navbar />
-			<PageHeader title={`Show: ${name}`} backUrl={`/${country}`} />
-			<Content>
-				<div>
-					<ShowDetails
-						name={name}
-						language={language}
-						site={officialSite}
-						premiered={premiered}
-						summary={summary}
-						type={type}
-						image={original}
-						rating={average}
-					/>
-					{/* <Cast cast={cast} /> */}
-				</div>
-			</Content>
+			{error ? (
+				<Error statusCode={error} />
+			) : (
+				<>
+					<PageHeader title={`Show: ${name}`} backUrl={`/${country}`} />
+					<Content>
+						<ShowDetails
+							name={name}
+							language={language}
+							site={officialSite}
+							premiered={premiered}
+							summary={summary}
+							type={type}
+							image={original}
+							rating={average}
+						/>
+					</Content>
+				</>
+			)}
 		</div>
 	);
 };
 
 export const getServerSideProps = async ({ query = {} }) => {
 	const { showId, country } = query;
+	console.log('aca estoy?');
 	try {
 		const response = await axios.get(
 			`https://api.tvmaze.com/shows/${showId}?embed=cast`
@@ -60,7 +56,7 @@ export const getServerSideProps = async ({ query = {} }) => {
 	} catch (error) {
 		return {
 			props: {
-				error,
+				error: error.response?.status,
 			},
 		};
 	}
