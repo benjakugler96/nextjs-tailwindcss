@@ -7,7 +7,7 @@ import {
 	ShowDetails,
 } from '../../components';
 
-const Show = ({ showDetails, error } = {}) => {
+const Show = ({ showDetails, error, country } = {}) => {
 	if (error) {
 		return <div>error ocurred</div>;
 	}
@@ -25,7 +25,7 @@ const Show = ({ showDetails, error } = {}) => {
 	return (
 		<div>
 			<Navbar />
-			<PageHeader title={`Show: ${name}`} backUrl="/us/" />
+			<PageHeader title={`Show: ${name}`} backUrl={`/${country}`} />
 			<Content>
 				<div>
 					<ShowDetails
@@ -46,7 +46,7 @@ const Show = ({ showDetails, error } = {}) => {
 };
 
 export const getServerSideProps = async ({ query = {} }) => {
-	const { showId } = query;
+	const { showId, country } = query;
 	try {
 		const response = await axios.get(
 			`https://api.tvmaze.com/shows/${showId}?embed=cast`
@@ -54,6 +54,7 @@ export const getServerSideProps = async ({ query = {} }) => {
 		return {
 			props: {
 				showDetails: response.data,
+				country,
 			},
 		};
 	} catch (error) {
