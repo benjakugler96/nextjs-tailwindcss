@@ -8,7 +8,6 @@ import {
 } from '../../components';
 
 const Show = ({ showDetails, error } = {}) => {
-	console.log('hola', showDetails);
 	if (error) {
 		return <div>error ocurred</div>;
 	}
@@ -20,12 +19,13 @@ const Show = ({ showDetails, error } = {}) => {
 		summary,
 		officialSite,
 		type,
-		rating: { average },
+		_embedded: { cast } = {},
+		rating: { average } = {},
 	} = showDetails;
 	return (
 		<div>
 			<Navbar />
-			<PageHeader title={name} />
+			<PageHeader title={`Show: ${name}`} backUrl="/us/" />
 			<Content>
 				<div>
 					<ShowDetails
@@ -38,7 +38,7 @@ const Show = ({ showDetails, error } = {}) => {
 						image={original}
 						rating={average}
 					/>
-					<Cast />
+					{/* <Cast cast={cast} /> */}
 				</div>
 			</Content>
 		</div>

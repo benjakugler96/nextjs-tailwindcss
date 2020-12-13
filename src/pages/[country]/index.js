@@ -23,7 +23,7 @@ const Country = ({ shows = [], country = '' }) => {
 			<Navbar />
 			<PageHeader title={`Tv Shows for ${country.toUpperCase()}`} />
 			<Content>
-				<ul className="grid md:grid-cols-3 lg:grid-cols-5 justify-items-center">
+				<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 justify-items-center">
 					{renderShows()}
 				</ul>
 			</Content>
