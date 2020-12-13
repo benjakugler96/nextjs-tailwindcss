@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import MobileMenu from '../mobile-menu';
 
-const NavBar = () => {
+const NavBar = ({ page = '' }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+	const ACTIVE_PAGE =
+		'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium';
+	const DEFAULT_PAGE =
+		'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium';
 
 	return (
 		<nav className="bg-gray-800">
@@ -32,14 +37,14 @@ const NavBar = () => {
 								{/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
 								<a
 									href="#"
-									className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+									className={page === 'home' ? ACTIVE_PAGE : DEFAULT_PAGE}
 								>
 									Home
 								</a>
 
 								<a
 									href="#"
-									className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+									className={page === 'list' ? ACTIVE_PAGE : DEFAULT_PAGE}
 								>
 									Country List
 								</a>
