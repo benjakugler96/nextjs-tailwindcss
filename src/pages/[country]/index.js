@@ -6,9 +6,9 @@ const paths = [
 	{ params: { country: 'US' } },
 	{ params: { country: 'CA' } },
 	{ params: { country: 'MX' } },
-	{ params: { country: 'us' } },
-	{ params: { country: 'ca' } },
-	{ params: { country: 'mx' } },
+	// { params: { country: 'us' } },
+	// { params: { country: 'ca' } },
+	// { params: { country: 'mx' } },
 ];
 
 const Country = ({ shows = [], country = '', error }) => {
