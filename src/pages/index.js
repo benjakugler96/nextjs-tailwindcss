@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { PageHeader, Content, Navbar, Techs } from '../components';
+import { PageHeader, Content, Navbar, Techs, Footer } from '../components';
 
 const Home = () => {
 	const router = useRouter();
@@ -38,6 +38,7 @@ const Home = () => {
 				</div>
 				<Techs />
 			</Content>
+			<Footer />
 		</div>
 	);
 };
