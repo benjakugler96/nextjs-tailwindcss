@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import countries from 'iso-3166-country-list';
 import { PageHeader, Content, Navbar, Techs, Footer } from '../components';
 
 const Home = () => {
@@ -29,10 +30,12 @@ const Home = () => {
 							autoComplete="country"
 							className="mt-1 block w-full py-2 px-5 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
 						>
-							<option disabled hidden value=""></option>
-							<option value="US">United States</option>
-							<option value="CA">Canada</option>
-							<option value="MX">Mexico</option>
+							<option disabled hidden value="" className="text-gray-500">
+								United States may work..
+							</option>
+							{countries.map((country) => (
+								<option value={country.code}>{country.name}</option>
+							))}
 						</select>
 					</div>
 				</div>

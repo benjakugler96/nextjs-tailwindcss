@@ -2196,6 +2196,11 @@ isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
 
+iso-3166-country-list@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iso-3166-country-list/-/iso-3166-country-list-0.1.2.tgz#16523b8984547af65f2ff42a628ebdbd127abd1f"
+  integrity sha1-FlI7iYRUevZfL/QqYo69vRJ6vR8=
+
 isobject@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
