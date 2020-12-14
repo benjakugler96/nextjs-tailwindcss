@@ -18,7 +18,7 @@ const Home = () => {
 
 	return (
 		<div>
-			<Navbar page="home" />
+			<Navbar page="/" />
 			<PageHeader title="Welcome!" backButton={false} />
 			<Content>
 				<div className="bg-white p-6 md:p-12 mb-12 rounded">

@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import MobileMenu from '../mobile-menu';
 
-const NavBar = ({ page = '' }) => {
+const NavBar = ({ page = '', details = false }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -18,20 +19,17 @@ const NavBar = ({ page = '' }) => {
 					<div className="flex items-center">
 						<div className="hidden md:block">
 							<div className="ml-10 flex items-baseline space-x-4">
-								{/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-								<a
-									href="#"
-									className={page === 'home' ? ACTIVE_PAGE : DEFAULT_PAGE}
-								>
-									Home
-								</a>
+								<Link href={page}>
+									<a className={page === '/' ? ACTIVE_PAGE : DEFAULT_PAGE}>
+										Home
+									</a>
+								</Link>
 
-								<a
-									href="#"
-									className={page === 'list' ? ACTIVE_PAGE : DEFAULT_PAGE}
-								>
-									Country List
-								</a>
+								{details && (
+									<Link href={page}>
+										<a className={ACTIVE_PAGE}>Shows</a>
+									</Link>
+								)}
 							</div>
 						</div>
 					</div>

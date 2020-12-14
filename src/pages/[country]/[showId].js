@@ -16,7 +16,7 @@ const Show = ({ showDetails = {}, error, country = '' } = {}) => {
 	} = showDetails;
 	return (
 		<div>
-			<Navbar />
+			<Navbar details page={`/${country}`} />
 			{error ? (
 				<Error statusCode={error} />
 			) : (

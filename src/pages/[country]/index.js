@@ -31,7 +31,7 @@ const Country = ({ shows = [], country = '', error }) => {
 
 	return (
 		<div className="min-h-screen flex flex-col">
-			<Navbar />
+			<Navbar details page={`/${country}`} />
 			{error ? (
 				<Error statusCode={error} />
 			) : (
