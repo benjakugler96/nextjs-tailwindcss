@@ -1,6 +1,12 @@
 import axios from 'axios';
 import Error from 'next/error';
-import { Thumbnail, PageHeader, Content, Navbar } from '../../components';
+import {
+	Content,
+	Empty,
+	Navbar,
+	PageHeader,
+	Thumbnail,
+} from '../../components';
 
 const paths = [
 	{ params: { country: 'US' } },
@@ -24,19 +30,23 @@ const Country = ({ shows = [], country = '', error }) => {
 		));
 
 	return (
-		<div>
+		<div className="min-h-screen flex flex-col">
 			<Navbar />
 			{error ? (
 				<Error statusCode={error} />
 			) : (
-				<>
+				<div className="flex-1 flex flex-col">
 					<PageHeader title={`Tv Shows for ${country.toUpperCase()}`} />
 					<Content>
-						<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 justify-items-center">
-							{renderShows()}
-						</ul>
+						{!shows.length ? (
+							<Empty />
+						) : (
+							<ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 justify-items-center">
+								{renderShows()}
+							</ul>
+						)}
 					</Content>
-				</>
+				</div>
 			)}
 		</div>
 	);
