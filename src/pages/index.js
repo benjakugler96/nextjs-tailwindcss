@@ -40,8 +40,10 @@ const Home = () => {
 							<option disabled hidden value="" className="text-gray-500">
 								United States may work..
 							</option>
-							{countries.map((country) => (
-								<option value={country.code}>{country.name}</option>
+							{countries.map((country, index) => (
+								<option key={index} value={country.code}>
+									{country.name}
+								</option>
 							))}
 						</select>
 					</div>
