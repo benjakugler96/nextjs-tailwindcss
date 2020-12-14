@@ -2,6 +2,7 @@ export { default as Cast } from './cast';
 export { default as Content } from './layout/content';
 export { default as Empty } from './empty';
 export { default as Footer } from './layout/footer';
+export { default as SocialCards } from './social-cards';
 export { default as MobileMenu } from './layout/mobile-menu';
 export { default as Navbar } from './layout/navbar';
 export { default as PageHeader } from './layout/page-header';

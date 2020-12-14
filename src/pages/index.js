@@ -1,6 +1,13 @@
 import { useRouter } from 'next/router';
 import countries from 'iso-3166-country-list';
-import { PageHeader, Content, Navbar, Techs, Footer } from '../components';
+import {
+	Content,
+	Footer,
+	SocialCards,
+	Navbar,
+	PageHeader,
+	Techs,
+} from '../components';
 
 const Home = () => {
 	const router = useRouter();
@@ -14,7 +21,7 @@ const Home = () => {
 			<Navbar page="home" />
 			<PageHeader title="Welcome!" backButton={false} />
 			<Content>
-				<div className="bg-white p-12 mb-12 rounded">
+				<div className="bg-white p-6 md:p-12 mb-12 rounded">
 					<div className="max-w-sm m-auto">
 						<label
 							htmlFor="country"
@@ -39,6 +46,7 @@ const Home = () => {
 						</select>
 					</div>
 				</div>
+				<SocialCards />
 				<Techs />
 			</Content>
 			<Footer />
